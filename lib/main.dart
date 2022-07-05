@@ -8,6 +8,14 @@ class BytebankApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData().copyWith(
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: Colors.black,
+              onPrimary: Colors.white,
+              secondary: Color.fromARGB(255, 180, 180, 180),
+              onSecondary: Colors.black,
+            ),
+      ),
       home: ListaTransferencias(),
     );
   }
@@ -28,7 +36,6 @@ class _ListaTransferenciasState extends State<ListaTransferencias> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Transferências'),
-        backgroundColor: Colors.blueGrey[900],
       ),
       body: ListView.builder(
         itemCount: widget._transferencias.length,
@@ -39,7 +46,6 @@ class _ListaTransferenciasState extends State<ListaTransferencias> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        backgroundColor: Colors.blueGrey[900],
         onPressed: () {
           final Future<Transferencia?> future = Navigator.push(
             context,
@@ -111,7 +117,6 @@ class _FormularioTransferenciaState extends State<FormularioTransferencia> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Criando Transferência'),
-        backgroundColor: Colors.blueGrey[900],
       ),
       body: SingleChildScrollView(
         child: Column(
